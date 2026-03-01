@@ -8,7 +8,7 @@ import { QuranicMessage, Mood } from '../types';
 const getAudioUrl = (surah: number, ayah: number) => {
   const s = surah.toString().padStart(3, '0');
   const a = ayah.toString().padStart(3, '0');
-  return `https://everyayah.com/data/Alafasy_128kbps/${s}${a}.mp3`;
+  return `https://audio.qurancdn.com/Alafasy/mp3/${s}${a}.mp3`;
 };
 
 export const verses: QuranicMessage[] = [
@@ -91,5 +91,75 @@ export const verses: QuranicMessage[] = [
     explanation: "أعظم طمأنينة هي قرب الله منك، وأنه يسمع مناجاتك في كل وقت.",
     wisdom: "لا تتردد في الدعاء بأدق تفاصيل حياتك، فالذي خلقك هو الأقرب إليك.",
     audioUrl: getAudioUrl(2, 186)
+  },
+  {
+    id: 9,
+    ayah: "وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا",
+    surah: "العنكبوت",
+    ayahNumber: 69,
+    mood: Mood.GUIDANCE,
+    explanation: "وعد من الله أن من بذل الجهد في طلب الحق والتقرب إليه، سيفتح الله له أبواب الهداية والتوفيق.",
+    wisdom: "ابدأ بالخطوة الأولى بصدق، وسيتولى الله إنارة الطريق لك وتيسير السبل.",
+    audioUrl: getAudioUrl(29, 69)
+  },
+  {
+    id: 10,
+    ayah: "لَا تَخَافَا ۖ إِنَّنِي مَعَكُمَا أَسْمَعُ وَأَرَىٰ",
+    surah: "طه",
+    ayahNumber: 46,
+    mood: Mood.STRENGTH,
+    explanation: "كلمات ربانية تبدد الخوف من القلوب، مذكرة بمعية الله الدائمة وسمعه وبصره المحيط بكل شيء.",
+    wisdom: "عندما تواجه تحدياً كبيراً، تذكر أن الله معك، يرى تفاصيلك ويسمع نبضات قلبك.",
+    audioUrl: getAudioUrl(20, 46)
+  },
+  {
+    id: 11,
+    ayah: "لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا",
+    surah: "البقرة",
+    ayahNumber: 286,
+    mood: Mood.RELIEF,
+    explanation: "قاعدة ربانية في الرحمة؛ فالله لا يضعك في اختبار إلا وقد وهبك القدرة على تجاوزه.",
+    wisdom: "ثق أن ما تمر به الآن هو ضمن قدرتك، وأن الله يعلم قوتك أكثر مما تعلمها أنت.",
+    audioUrl: getAudioUrl(2, 286)
+  },
+  {
+    id: 12,
+    ayah: "لَئِن شَكَرْتُمْ لَأَزِيدَنَّكُمْ",
+    surah: "إبراهيم",
+    ayahNumber: 7,
+    mood: Mood.HOPE,
+    explanation: "الشكر هو مفتاح الزيادة والبركة، وهو اعتراف بفضل المنعم الذي يفتح أبواب العطاء.",
+    wisdom: "انظر إلى ما تملك بامتنان، فالحمد يثبت النعم الموجودة ويجلب النعم المفقودة.",
+    audioUrl: getAudioUrl(14, 7)
+  },
+  {
+    id: 13,
+    ayah: "وَهُوَ مَعَكُمْ أَيْنَ مَا كُنتُمْ",
+    surah: "الحديد",
+    ayahNumber: 4,
+    mood: Mood.PEACE,
+    explanation: "أعظم شعور بالأمان هو إدراك أن الله لا يغيب عنك أبداً، في خلوتك وجلوتك.",
+    wisdom: "لست وحيداً أبداً، فالله أقرب إليك من حبل الوريد، يحيطك بعلمه ورحمته في كل مكان.",
+    audioUrl: getAudioUrl(57, 4)
+  },
+  {
+    id: 14,
+    ayah: "إِنَّ رَبِّي لَسَمِيعُ الدُّعَاءِ",
+    surah: "إبراهيم",
+    ayahNumber: 39,
+    mood: Mood.TRUST,
+    explanation: "يقين تام بأن الله يسمع كل نداء، حتى تلك الدعوات التي لم تنطق بها الشفاه.",
+    wisdom: "لا تمل من تكرار طلبك، فالله يحب إلحاحك ويسمع صوتك في كل حين.",
+    audioUrl: getAudioUrl(14, 39)
+  },
+  {
+    id: 15,
+    ayah: "وَرَحْمَتِي وَسِعَتْ كُلَّ شَيْءٍ",
+    surah: "الأعراف",
+    ayahNumber: 156,
+    mood: Mood.COMFORT,
+    explanation: "رحمة الله لا حدود لها، وهي تشمل كل مخلوق وكل حال، مهما بلغت الصعاب.",
+    wisdom: "مهما شعرت بالضيق، تذكر أنك تتقلب في رحمة الله التي وسعت الكون بأسره.",
+    audioUrl: getAudioUrl(7, 156)
   }
 ];

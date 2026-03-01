@@ -6,7 +6,8 @@ export enum Mood {
   TRUST = 'توكل',
   STRENGTH = 'قوة',
   COMFORT = 'راحة',
-  RELIEF = 'تفريج هم'
+  RELIEF = 'تفريج هم',
+  GUIDANCE = 'هداية'
 }
 
 export interface QuranicMessage {

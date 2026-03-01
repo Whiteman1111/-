@@ -1,11 +1,13 @@
 
 import React, { useState, useCallback, useRef, useEffect } from 'react';
+import { motion } from 'motion/react';
 import Background from './components/Background';
 import FloatingHearts from './components/FloatingHearts';
+import AboutModal from './components/AboutModal';
 import { LightRays, SparklesParticles } from './components/SpiritualEffects';
 import { AppState } from './types';
 import { verses } from './data/verses';
-import { RefreshCw, Volume2, VolumeX, Sparkles, Layout, Copy, Check, BookOpen, Play, Pause } from 'lucide-react';
+import { RefreshCw, Volume2, VolumeX, Sparkles, Layout, Copy, Check, BookOpen, Play, Pause, Info, ChevronDown } from 'lucide-react';
 
 const App: React.FC = () => {
   const [state, setState] = useState<AppState>({
@@ -19,6 +21,7 @@ const App: React.FC = () => {
 
   const [copied, setCopied] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isAboutOpen, setIsAboutOpen] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   // إيقاف وتصفير الصوت تماماً لضمان عدم حدوث أخطاء عند التحميل التالي
@@ -81,6 +84,7 @@ const App: React.FC = () => {
       if (audioRef.current) stopAudio();
       
       const audio = new Audio(state.currentMessage.audioUrl);
+      audio.crossOrigin = "anonymous";
       audio.onended = () => setIsPlaying(false);
       audio.onerror = () => {
         console.error("Audio failed to load from:", state.currentMessage?.audioUrl);
@@ -94,6 +98,10 @@ const App: React.FC = () => {
       audioRef.current.pause();
       setIsPlaying(false);
     } else {
+      if (state.settings.quietMode) {
+        alert("يرجى إلغاء كتم الصوت من الأعلى أولاً");
+        return;
+      }
       audioRef.current.play()
         .then(() => setIsPlaying(true))
         .catch(err => {
@@ -126,6 +134,13 @@ const App: React.FC = () => {
         </div>
 
         <div className="flex gap-4">
+          <button 
+            onClick={() => setIsAboutOpen(true)}
+            className="p-2 hover:bg-white/10 rounded-full transition-colors"
+            title="عن التطبيق"
+          >
+            <Info className="w-5 h-5 opacity-80" />
+          </button>
           <button 
             onClick={toggleQuiet}
             className="p-2 hover:bg-white/10 rounded-full transition-colors"
@@ -168,9 +183,44 @@ const App: React.FC = () => {
               <span className="relative">اضغط لتتلقى رسالتك</span>
             </button>
             
-            <div className="mt-14 flex items-center justify-center gap-2 text-amber-400/60 text-sm">
-              <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
-              <span>رسالتك اليوم بانتظارك</span>
+            <div className="mt-14 flex flex-col items-center gap-6 text-amber-400/60 text-sm">
+              <div className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+                <span>رسالتك اليوم بانتظارك</span>
+              </div>
+              
+              <motion.div 
+                animate={{ y: [0, 10, 0] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                className="mt-4 opacity-40"
+              >
+                <ChevronDown className="w-6 h-6" />
+              </motion.div>
+            </div>
+
+            {/* About Us Section */}
+            <div className="mt-32 w-full max-w-3xl border-t border-white/5 pt-20 pb-12 text-right">
+              <div className="inline-flex items-center gap-3 mb-8 px-4 py-2 bg-amber-500/5 rounded-2xl border border-amber-500/10">
+                <h3 className="text-2xl font-bold text-amber-400">
+                  نبذة عنا
+                </h3>
+                <Info className="w-6 h-6 text-amber-400" />
+              </div>
+              <div className="space-y-8 text-gray-400 leading-relaxed text-lg">
+                <p>
+                  تطبيق "آية لك" هو مساحة رقمية هادئة صُممت لتكون رفيقك في لحظات التأمل. نحن نؤمن بأن كلمات القرآن الكريم تحمل في طياتها طاقة شفائية ورسائل ربانية قادرة على تغيير مسار يومك ومنحك القوة لمواجهة الصعاب.
+                </p>
+                <div className="grid md:grid-cols-2 gap-8 text-right">
+                  <div className="p-6 bg-white/5 rounded-3xl border border-white/5">
+                    <h4 className="text-white font-bold mb-3">رؤيتنا</h4>
+                    <p className="text-sm">أن يصبح "آية لك" الملاذ الأول لكل من يبحث عن السكينة والهدوء النفسي من خلال تدبر آيات الله.</p>
+                  </div>
+                  <div className="p-6 bg-white/5 rounded-3xl border border-white/5">
+                    <h4 className="text-white font-bold mb-3">رسالتنا</h4>
+                    <p className="text-sm">تيسير الوصول إلى معاني القرآن الكريم بأسلوب عصري يجمع بين الجمال البصري والعمق الروحاني.</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         )}
@@ -277,6 +327,8 @@ const App: React.FC = () => {
         <p>© {new Date().getFullYear()} آية لك - منصة إيمانية</p>
         <p className="text-gray-500 opacity-80">جميع حقوق الموقع محفوظة باسم حبيب الله محمد</p>
       </footer>
+
+      <AboutModal isOpen={isAboutOpen} onClose={() => setIsAboutOpen(false)} />
 
       <style>{`
         @keyframes fade-in {
