@@ -8,7 +8,7 @@ import { QuranicMessage, Mood } from '../types';
 const getAudioUrl = (surah: number, ayah: number) => {
   const s = surah.toString().padStart(3, '0');
   const a = ayah.toString().padStart(3, '0');
-  return `https://audio.qurancdn.com/Alafasy/mp3/${s}${a}.mp3`;
+  return `https://everyayah.com/data/Alafasy_128kbps/${s}${a}.mp3`;
 };
 
 export const verses: QuranicMessage[] = [

@@ -92,10 +92,24 @@ const App: React.FC = () => {
       if (audioRef.current) stopAudio();
       
       const audio = new Audio(state.currentMessage.audioUrl);
-      audio.crossOrigin = "anonymous";
+      // إزالة crossOrigin لتجنب مشاكل CORS غير الضرورية للتشغيل البسيط
       audio.onended = () => setIsPlaying(false);
       audio.onerror = () => {
-        console.error("Audio failed to load from:", state.currentMessage?.audioUrl);
+        console.error("Audio failed to load from:", audio.src);
+        
+        // محاولة مصدر بديل إذا فشل الأول
+        if (audio.src.includes('everyayah.com')) {
+          const fallbackUrl = audio.src.replace('everyayah.com/data/Alafasy_128kbps', 'audio.qurancdn.com/Alafasy/mp3');
+          console.log("Trying fallback source:", fallbackUrl);
+          audio.src = fallbackUrl;
+          audio.load();
+          audio.play().catch(() => {
+            setIsPlaying(false);
+            alert("عذراً، تعذر تحميل التلاوة حالياً. يرجى المحاولة لاحقاً.");
+          });
+          return;
+        }
+
         setIsPlaying(false);
         alert("عذراً، تعذر تحميل التلاوة حالياً. يرجى المحاولة لاحقاً.");
       };
