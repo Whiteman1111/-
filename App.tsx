@@ -215,19 +215,19 @@ const App: React.FC = () => {
               <FloatingHearts />
               
               <div className="max-w-3xl min-h-[140px] flex items-center justify-center mb-6">
-                <h2 className="text-4xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-offwhite via-offwhite to-gray-500 leading-[1.3] md:leading-[1.1] tracking-tight">
+                <h2 className="text-3xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-offwhite via-offwhite to-gray-500 leading-[1.3] md:leading-[1.1] tracking-tight">
                   قد تكون هذه هي الرسالة التي تحتاجها الآن
                 </h2>
               </div>
 
-              <p className="text-gray-400 text-lg md:text-2xl mb-12 max-w-xl mx-auto leading-relaxed opacity-80 font-light">
+              <p className="text-gray-400 text-base md:text-2xl mb-12 max-w-xl mx-auto leading-relaxed opacity-80 font-light">
                 منصة روحانية فاخرة تقدم لك رسالة من القرآن في اللحظة التي تحتاجها، لتكون مصدر طمأنينة وإلهام.
               </p>
               
               <div className="flex flex-col gap-8 items-center w-full">
                 <button
                   onClick={() => getMessage(null)}
-                  className="group relative px-16 py-8 bg-gradient-to-r from-gold to-amber-500 text-midnight font-bold text-3xl rounded-full shadow-[0_0_40px_rgba(212,175,55,0.3)] hover:shadow-[0_0_60px_rgba(212,175,55,0.5)] transform hover:-translate-y-1 transition-all duration-500 overflow-hidden"
+                  className="group relative px-8 py-6 md:px-16 md:py-8 bg-gradient-to-r from-gold to-amber-500 text-midnight font-bold text-xl md:text-3xl rounded-full shadow-[0_0_40px_rgba(212,175,55,0.3)] hover:shadow-[0_0_60px_rgba(212,175,55,0.5)] transform hover:-translate-y-1 transition-all duration-500 overflow-hidden"
                 >
                   <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
                   <span className="relative flex items-center gap-3">
@@ -243,7 +243,7 @@ const App: React.FC = () => {
                       <button
                         key={f.mood}
                         onClick={() => getMessage(f.mood)}
-                        className="flex flex-col items-center gap-3 p-6 rounded-[2rem] bg-white/5 border border-white/5 hover:border-gold/30 hover:bg-white/10 transition-all duration-300 group"
+                        className="flex flex-col items-center gap-3 p-4 md:p-6 rounded-[2rem] bg-white/5 border border-white/5 hover:border-gold/30 hover:bg-white/10 transition-all duration-300 group"
                       >
                         <div className="w-12 h-12 rounded-2xl bg-gold/10 flex items-center justify-center text-gold group-hover:scale-110 transition-transform">
                           {f.icon}
@@ -259,7 +259,7 @@ const App: React.FC = () => {
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                     <button
                       onClick={() => setState(s => ({ ...s, view: 'morning_azkar' }))}
-                      className="flex flex-col items-center gap-3 p-6 rounded-[2rem] bg-white/5 border border-white/5 hover:border-gold/30 hover:bg-white/10 transition-all duration-300 group"
+                      className="flex flex-col items-center gap-3 p-4 md:p-6 rounded-[2rem] bg-white/5 border border-white/5 hover:border-gold/30 hover:bg-white/10 transition-all duration-300 group"
                     >
                       <div className="w-12 h-12 rounded-2xl bg-amber-500/10 flex items-center justify-center text-amber-500 group-hover:scale-110 transition-transform">
                         <Coffee className="w-6 h-6" />
@@ -268,7 +268,7 @@ const App: React.FC = () => {
                     </button>
                     <button
                       onClick={() => setState(s => ({ ...s, view: 'evening_azkar' }))}
-                      className="flex flex-col items-center gap-3 p-6 rounded-[2rem] bg-white/5 border border-white/5 hover:border-gold/30 hover:bg-white/10 transition-all duration-300 group"
+                      className="flex flex-col items-center gap-3 p-4 md:p-6 rounded-[2rem] bg-white/5 border border-white/5 hover:border-gold/30 hover:bg-white/10 transition-all duration-300 group"
                     >
                       <div className="w-12 h-12 rounded-2xl bg-indigo-500/10 flex items-center justify-center text-indigo-500 group-hover:scale-110 transition-transform">
                         <Moon className="w-6 h-6" />
@@ -277,7 +277,7 @@ const App: React.FC = () => {
                     </button>
                     <button
                       onClick={() => setState(s => ({ ...s, view: 'muawwidhat' }))}
-                      className="flex flex-col items-center gap-3 p-6 rounded-[2rem] bg-white/5 border border-white/5 hover:border-gold/30 hover:bg-white/10 transition-all duration-300 group"
+                      className="flex flex-col items-center gap-3 p-4 md:p-6 rounded-[2rem] bg-white/5 border border-white/5 hover:border-gold/30 hover:bg-white/10 transition-all duration-300 group"
                     >
                       <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-500 group-hover:scale-110 transition-transform">
                         <Stars className="w-6 h-6" />
@@ -286,7 +286,7 @@ const App: React.FC = () => {
                     </button>
                     <button
                       onClick={() => setState(s => ({ ...s, view: 'duas' }))}
-                      className="flex flex-col items-center gap-3 p-6 rounded-[2rem] bg-white/5 border border-white/5 hover:border-gold/30 hover:bg-white/10 transition-all duration-300 group"
+                      className="flex flex-col items-center gap-3 p-4 md:p-6 rounded-[2rem] bg-white/5 border border-white/5 hover:border-gold/30 hover:bg-white/10 transition-all duration-300 group"
                     >
                       <div className="w-12 h-12 rounded-2xl bg-rose-500/10 flex items-center justify-center text-rose-500 group-hover:scale-110 transition-transform">
                         <Heart className="w-6 h-6" />
@@ -360,14 +360,14 @@ const App: React.FC = () => {
               </div>
 
               {/* Share Card Container */}
-              <div ref={shareCardRef} className="relative bg-midnight border border-white/10 rounded-[3rem] p-10 md:p-20 shadow-2xl overflow-hidden group">
+              <div ref={shareCardRef} className="relative bg-midnight border border-white/10 rounded-[2rem] md:rounded-[3rem] p-6 md:p-20 shadow-2xl overflow-hidden group">
                 {!state.settings.minimalEffects && <SparklesParticles />}
 
                 <div className="absolute -top-40 -left-40 w-96 h-96 bg-gold/5 blur-[120px] rounded-full group-hover:bg-gold/10 transition-all duration-1000" />
                 <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-indigo-500/5 blur-[120px] rounded-full group-hover:bg-indigo-500/10 transition-all duration-1000" />
 
                 <div className="relative z-10">
-                  <p className="quran-text text-4xl md:text-6xl leading-[1.6] mb-12 text-offwhite text-center tracking-tight font-medium">
+                  <p className="quran-text text-2xl md:text-6xl leading-[1.6] mb-12 text-offwhite text-center tracking-tight font-medium">
                     " {state.currentMessage.ayah} "
                   </p>
                   
@@ -405,29 +405,29 @@ const App: React.FC = () => {
                 </div>
               </div>
 
-              <div className="mt-12 flex flex-wrap items-center justify-center gap-6">
+              <div className="mt-12 flex flex-wrap items-center justify-center gap-4 md:gap-6">
                 <button 
                   onClick={() => getMessage(state.selectedMood)}
-                  className="flex items-center gap-3 px-10 py-5 bg-gold text-midnight hover:bg-amber-400 rounded-[2rem] transition-all active:scale-95 shadow-2xl font-bold text-xl"
+                  className="flex items-center gap-3 px-6 py-4 md:px-10 md:py-5 bg-gold text-midnight hover:bg-amber-400 rounded-2xl md:rounded-[2rem] transition-all active:scale-95 shadow-2xl font-bold text-lg md:text-xl"
                 >
-                  <RefreshCw className="w-6 h-6" />
+                  <RefreshCw className="w-5 h-5 md:w-6 md:h-6" />
                   <span>آية أخرى</span>
                 </button>
 
                 <button 
                   onClick={copyToClipboard}
-                  className={`flex items-center gap-3 px-10 py-5 rounded-[2rem] transition-all border-2 active:scale-95 shadow-2xl font-bold text-xl ${copied ? 'bg-green-600/20 text-green-400 border-green-500/30' : 'bg-white/5 text-gold border-gold/20 hover:bg-white/10'}`}
+                  className={`flex items-center gap-3 px-6 py-4 md:px-10 md:py-5 rounded-2xl md:rounded-[2rem] transition-all border-2 active:scale-95 shadow-2xl font-bold text-lg md:text-xl ${copied ? 'bg-green-600/20 text-green-400 border-green-500/30' : 'bg-white/5 text-gold border-gold/20 hover:bg-white/10'}`}
                 >
-                  {copied ? <Check className="w-6 h-6" /> : <Copy className="w-6 h-6" />}
+                  {copied ? <Check className="w-5 h-5 md:w-6 md:h-6" /> : <Copy className="w-5 h-5 md:w-6 md:h-6" />}
                   <span>{copied ? 'تم النسخ' : 'نسخ النص'}</span>
                 </button>
 
                 <button 
                   onClick={shareAsImage}
                   disabled={isSharing}
-                  className="flex items-center gap-3 px-10 py-5 bg-white/5 text-gold border-2 border-gold/20 hover:bg-white/10 rounded-[2rem] transition-all active:scale-95 shadow-2xl font-bold text-xl disabled:opacity-50"
+                  className="flex items-center gap-3 px-6 py-4 md:px-10 md:py-5 bg-white/5 text-gold border-2 border-gold/20 hover:bg-white/10 rounded-2xl md:rounded-[2rem] transition-all active:scale-95 shadow-2xl font-bold text-lg md:text-xl disabled:opacity-50"
                 >
-                  {isSharing ? <RefreshCw className="w-6 h-6 animate-spin" /> : <Download className="w-6 h-6" />}
+                  {isSharing ? <RefreshCw className="w-5 h-5 md:w-6 md:h-6 animate-spin" /> : <Download className="w-5 h-5 md:w-6 md:h-6" />}
                   <span>تحميل كصورة</span>
                 </button>
               </div>
