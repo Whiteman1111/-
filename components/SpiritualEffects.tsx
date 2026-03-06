@@ -8,7 +8,7 @@ export const LightRays: React.FC = () => {
         {Array.from({ length: 8 }).map((_, i) => (
           <div
             key={i}
-            className="absolute w-[200%] h-[2px] bg-gradient-to-r from-transparent via-amber-400/20 to-transparent"
+            className="absolute w-[200%] h-[2px] bg-gradient-to-r from-transparent via-gold/20 to-transparent"
             style={{
               transform: `rotate(${i * 45}deg)`,
               animation: `pulse-rays ${4 + i}s infinite ease-in-out`,
@@ -44,7 +44,7 @@ export const SparklesParticles: React.FC = () => {
       {particles.map((p) => (
         <div
           key={p.id}
-          className="absolute bg-amber-200 rounded-full blur-[1px]"
+          className="absolute bg-gold rounded-full blur-[1px]"
           style={{
             left: p.left,
             top: p.top,

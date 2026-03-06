@@ -20,11 +20,11 @@ const Background: React.FC<BackgroundProps> = ({ minimal = false }) => {
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
       {/* Deep night gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#020617] via-[#0f172a] to-[#1e1b4b]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0F172A] via-[#1E293B] to-[#0F172A]" />
       
       {/* Glowing orbs in background */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-900/20 blur-[120px] rounded-full" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-indigo-900/20 blur-[120px] rounded-full" />
+      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-gold/5 blur-[150px] rounded-full animate-pulse" />
+      <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-indigo-900/10 blur-[150px] rounded-full" />
       
       {/* Stars */}
       {stars.map((star) => (

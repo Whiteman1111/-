@@ -22,7 +22,7 @@ export interface QuranicMessage {
 }
 
 export interface AppState {
-  view: 'home' | 'loading' | 'result';
+  view: 'home' | 'loading' | 'result' | 'morning_azkar' | 'evening_azkar' | 'muawwidhat' | 'duas';
   currentMessage: QuranicMessage | null;
   settings: {
     quietMode: boolean;
